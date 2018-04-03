@@ -5,6 +5,7 @@ import org.usfirst.frc295.GrizzlynatorBase.RobotMap;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PWM;
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.Spark;
@@ -26,6 +27,10 @@ public class SysIntake extends Subsystem {
 	private boolean isManualIntakeOn = false;
 	private boolean isManualIntakeOff = false;
 	
+	private DoubleSolenoid IntakeLeft = new DoubleSolenoid(0,RobotMap.PCM_PUSH_SOL, RobotMap.PCM_PUSH_SOL_FOLLOW);
+	private DoubleSolenoid IntakeRight = new DoubleSolenoid(0,RobotMap.PCM_LEFT_SOL,RobotMap.PCM_LEFT_SOL_FOLLOW);
+	private final DoubleSolenoid.Value RETRACT_SOLENOID = DoubleSolenoid.Value.kReverse;
+	private final DoubleSolenoid.Value EXTEND_SOLENOID = DoubleSolenoid.Value.kForward;
 	private Spark LeftMotor;
 	private Spark RightMotor;
 	private Servo PushOutMain = new Servo(RobotMap.PWM_SERVO_INTAKE);
@@ -381,5 +386,15 @@ public class SysIntake extends Subsystem {
 		
 		LeftMotor.setSpeed(currentspeed);
 		RightMotor.setSpeed(currentspeed);
+	}
+	public void OpenIntake()
+	{
+		IntakeLeft.set(EXTEND_SOLENOID);
+		IntakeRight.set(EXTEND_SOLENOID);
+	}
+	public void CloseIntake()
+	{
+		IntakeLeft.set(RETRACT_SOLENOID);
+		IntakeRight.set(RETRACT_SOLENOID);
 	}
 }

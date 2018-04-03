@@ -13,7 +13,7 @@ public class Waypoint extends Command
     private double _dRotation;
     private double _dTime;
     public double _dCurvecurve;
-    static double Kp = .023;//.08
+    static double Kp = .027;//.08
     static double START_TIME;
     public boolean _dTrack;
     public boolean _disQuickTurn;
@@ -84,12 +84,12 @@ public class Waypoint extends Command
             if (_dAutoDiff < 0 )
             {
                 _dLeftSpeed = _dMove ;
-                _dRightSpeed = _dMove ;
+                _dRightSpeed = _dMove + .05;
             }
             else if (_dAutoDiff > 0)
             {
                 _dRightSpeed = _dMove ;
-                _dLeftSpeed = _dMove ;
+                _dLeftSpeed = _dMove + .05;
             }
             else
             {
@@ -97,29 +97,29 @@ public class Waypoint extends Command
                 _dRightSpeed = _dMove;
             }
         }
-//        else if (_dMove < 0 )
-//        {
-//            if (_dAutoDiff < 0 )
-//            {
-//                _dLeftSpeed = _dMove -.00 ;
-//                _dRightSpeed = _dMove + .00;
-//            }
-//            else if (_dAutoDiff > 0)
-//            {
-//                _dRightSpeed = _dMove -.00 ;
-//                _dLeftSpeed = _dMove + .00;
-//            }
-//            else
-//            {
-//                _dLeftSpeed = _dMove;
-//                _dRightSpeed = _dMove;
-//            }
-//        }
+        else if (_dMove < 0 )
+        {
+            if (_dAutoDiff < 0 )
+            {
+                _dLeftSpeed = _dMove ;
+                _dRightSpeed = _dMove - .05;
+            }
+            else if (_dAutoDiff > 0)
+            {
+                _dRightSpeed = _dMove ;
+                _dLeftSpeed = _dMove - .05;
+            }
+            else
+            {
+                _dLeftSpeed = _dMove;
+                _dRightSpeed = _dMove;
+            }
+        }
         
         // firstvar = move secondvar = move + rotation
         if (_dTargetAngle == 0)
         {
-            System.out.println("NO turn");
+//            System.out.println("NO turn");
             SmartDashboard.putNumber("Encoder Value", Robot.sysDriveTrain.getDistance());
 //          Robot.sysDriveTrain.arcadeDrive(-_dMove, -_dCurvecurve);
             Robot.sysDriveTrain.tankDrive(-_dLeftSpeed,- _dRightSpeed);
@@ -127,13 +127,13 @@ public class Waypoint extends Command
         }
         else
         {
-            System.out.println("Fix Left Right Turning");
+//            System.out.println("Fix Left Right Turning");
             if ((Math.abs(_dTargetAngle) > 2.0))
             {
-                System.out.print("Waypoint: dCurveCurve");
-                System.out.print(_dCurvecurve);
-                System.out.print("  Math.abs(_dCurvecurve / Kp)=");
-                System.out.println(Math.abs(_dCurvecurve / Kp));
+//                System.out.print("Waypoint: dCurveCurve");
+//                System.out.print(_dCurvecurve);
+//                System.out.print("  Math.abs(_dCurvecurve / Kp)=");
+//                System.out.println(Math.abs(_dCurvecurve / Kp));
                 
                 Robot.sysDriveTrain.arcadeDrive(-_dMove, -_dCurvecurve);
 //              Robot.sysDriveTrain.tankDrive(_dMove);

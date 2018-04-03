@@ -118,12 +118,12 @@ private JoystickDriver _joystickDriver = new JoystickDriver(0, JoystickDriver.Jo
 				
 		JoystickButton _btnOpManualIntakeCube = _joystickOperator.getManualIntakeCubeButton();
 		_btnOpManualIntakeCube.whileHeld(new CmdManualIntakeCube());
-//		
-//		JoystickButton _DROPRAMP = new JoystickButton(_joystickOperator, 5);
-//		_DROPRAMP.whenPressed(new CmdRampDrop());
-//		
-//		JoystickButton _EXTENDRAMP = new JoystickButton(_joystickOperator, 6);
-//		_EXTENDRAMP.whenPressed(new CmdRampLeft());
+		
+		JoystickButton _btnCloseIntake = new JoystickButton(_joystickOperator, 5);
+		_btnCloseIntake.whenPressed(new CmdIntakeClose());
+		
+		JoystickButton _btnOpenIntake = new JoystickButton(_joystickOperator, 6);
+		_btnOpenIntake.whenPressed(new CmdIntakeOpen());
 
 		JoystickButton _btnOpManualDropCube = _joystickOperator.getManualDropCubeButton();
 		_btnOpManualDropCube.whileHeld(new CmdManualDropCube());

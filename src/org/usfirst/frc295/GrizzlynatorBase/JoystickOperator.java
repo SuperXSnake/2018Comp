@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  */
 public class JoystickOperator extends Joystick
 {
-
+	private final short OPERATOR_AXIS_THROTTLE_XBOX = 1;
 	// X-BOX OPERATOR JOYSTICK BUTTONS
 	//public static final short OPERATOR_BUTTON_SHOOT_XBOX = 1;
 	public static final short OPERATOR_BUTTON_ELEVATOR_BOTTOM_XBOX = 1; //BUTTON A OPERATOR
@@ -58,6 +58,17 @@ public class JoystickOperator extends Joystick
 	{
 		super(iPort);
 		_eJoystickType = eType;
+	}
+	public double getDriveTrainThrottleValue()
+	{
+		switch (_eJoystickType)
+		{
+		case XBOX:
+			return (this.getRawAxis(OPERATOR_AXIS_THROTTLE_XBOX));
+
+		default:
+			return (this.getRawAxis(OPERATOR_AXIS_THROTTLE_XBOX));
+		}
 	}
 
 	JoystickButton getElevatorBottomButton()
