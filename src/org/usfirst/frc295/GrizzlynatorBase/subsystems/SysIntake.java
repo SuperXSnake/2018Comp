@@ -5,6 +5,7 @@ import org.usfirst.frc295.GrizzlynatorBase.RobotMap;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PWM;
 import edu.wpi.first.wpilibj.Servo;
@@ -33,6 +34,11 @@ public class SysIntake extends Subsystem {
 	private final DoubleSolenoid.Value EXTEND_SOLENOID = DoubleSolenoid.Value.kForward;
 	private Spark LeftMotor;
 	private Spark RightMotor;
+	private Spark ArmMotor = new Spark(90); //rember this anurag
+	private static DigitalInput limitswitcharmtop = new DigitalInput(4);//blame this code if there is resource error
+	private static DigitalInput limitswitcharmbottom = new DigitalInput(5);// I aryan programming lead coded this
+
+
 	private Servo PushOutMain = new Servo(RobotMap.PWM_SERVO_INTAKE);
 	boolean cubeisIn;
 	boolean Reverse;
@@ -397,4 +403,26 @@ public class SysIntake extends Subsystem {
 		IntakeLeft.set(RETRACT_SOLENOID);
 		IntakeRight.set(RETRACT_SOLENOID);
 	}
+	
+	public void armthingup()
+	{
+		ArmMotor.set(0.5);
+	}
+	public void armthingdown()
+	{
+		ArmMotor.set(-0.5);
+	}
+	public void armthingnothing()
+	{
+		ArmMotor.set(0);
+	}
+	public boolean isTopthingset() 
+	{
+	        return limitswitcharmtop.get();
+	    }
+	    
+	    public boolean isBottomthingset() 
+	    {
+	        				return limitswitcharmbottom.get();
+	    }
 }
