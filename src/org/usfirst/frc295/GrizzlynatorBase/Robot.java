@@ -248,7 +248,7 @@ public class Robot extends IterativeRobot
 			
 			sysDriveTrain.logToSmartDashboard();
 			sysIntake.IntakeState();
-//			gameData = DriverStation.getInstance().getGameSpecificMessage();
+			gameData = DriverStation.getInstance().getGameSpecificMessage();
 
 			Scheduler.getInstance().run();
 			log();
