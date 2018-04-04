@@ -26,7 +26,6 @@ import org.usfirst.frc295.GrizzlynatorBase.subsystems.SysDriveTrainCANOpenLoop;
 import org.usfirst.frc295.GrizzlynatorBase.subsystems.SysDriveTrainShifter;
 import org.usfirst.frc295.GrizzlynatorBase.subsystems.SysUltrasonic;
 import org.usfirst.frc295.GrizzlynatorBase.subsystems.SysIntake;
-import org.usfirst.frc295.GrizzlynatorBase.subsystems.SysRamp;
 
 
 import edu.wpi.first.wpilibj.DigitalInput;
@@ -74,7 +73,6 @@ public class Robot extends IterativeRobot
 	public static SysUltrasonic sysUltrasonic;
 	public static SysIntake sysIntake;
 	public static SysDriveTrainShifter sysDriveTrainShifter;
-	public static SysRamp sysRamp;
 	public static SysEncoderDrive sysEncoderDrive;
 
 	public static SysCamera sysCamera;
@@ -93,7 +91,6 @@ public class Robot extends IterativeRobot
 				sysUltrasonic = new SysUltrasonic();
 				sysDriveTrainShifter = new SysDriveTrainShifter();
 				sysEncoderDrive = new SysEncoderDrive();
-				sysRamp = new SysRamp();
 			}
 			else if (RobotMap.ROBOT_ID == RobotID.BOT_COMP0)
 			{

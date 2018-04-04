@@ -24,20 +24,24 @@ public class CmdArmDown extends Command {
 
     protected void execute() {
     	Robot.sysIntake.armthingdown();
+		System.out.println("Arm thingy moving down");
     }
 
     protected boolean isFinished() {
         return !Robot.sysIntake.isBottomthingset();
+  
     }
 
     // Called once after isFinished returns true
     protected void end() {
     	Robot.sysIntake.armthingnothing();
+		System.out.println("Arm thingy is down");
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
     	Robot.sysIntake.armthingnothing();
+		System.out.println("Arm thingy interupted");
     }
 }

@@ -3,8 +3,6 @@ package org.usfirst.frc295.GrizzlynatorBase.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import org.usfirst.frc295.GrizzlynatorBase.Robot;
-import org.usfirst.frc295.GrizzlynatorBase.subsystems.SysRamp;
-
 	public class CmdIntakeOpen extends Command //9 + 10
 	{
 		

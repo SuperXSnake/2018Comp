@@ -34,12 +34,11 @@ public class SysIntake extends Subsystem {
 	private final DoubleSolenoid.Value EXTEND_SOLENOID = DoubleSolenoid.Value.kForward;
 	private Spark LeftMotor;
 	private Spark RightMotor;
-	private Spark ArmMotor = new Spark(90); //rember this anurag
+	private Spark ArmMotor = new Spark(3); //rember this anurag
 	private static DigitalInput limitswitcharmtop = new DigitalInput(4);//blame this code if there is resource error
-	private static DigitalInput limitswitcharmbottom = new DigitalInput(5);// I aryan programming lead coded this
+	private static DigitalInput limitswitcharmbottom = new DigitalInput(5);//whats the past tense of yeet swayam wrote this
 
-
-	private Servo PushOutMain = new Servo(RobotMap.PWM_SERVO_INTAKE);
+	//private Servo PushOutMain = new Servo(RobotMap.PWM_SERVO_INTAKE);
 	boolean cubeisIn;
 	boolean Reverse;
 	boolean motorisRunning;
@@ -104,8 +103,8 @@ public class SysIntake extends Subsystem {
 	}
 	
 	public void PushOutIntake() {
-		PushOutMain.set(1);
-		PushOutMain.setAngle(0);
+		//PushOutMain.set(1);
+		//PushOutMain.setAngle(0);
 	}
 	public void initDefaultCommand() 
 	{
@@ -406,11 +405,11 @@ public class SysIntake extends Subsystem {
 	
 	public void armthingup()
 	{
-		ArmMotor.set(0.5);
+		ArmMotor.set(0.7);
 	}
 	public void armthingdown()
 	{
-		ArmMotor.set(-0.5);
+		ArmMotor.set(-0.7);
 	}
 	public void armthingnothing()
 	{
@@ -418,11 +417,11 @@ public class SysIntake extends Subsystem {
 	}
 	public boolean isTopthingset() 
 	{
-	        return limitswitcharmtop.get();
-	    }
+	      return limitswitcharmtop.get();
+	}
 	    
-	    public boolean isBottomthingset() 
-	    {
-	        				return limitswitcharmbottom.get();
-	    }
+	public boolean isBottomthingset() 
+	{
+	      return limitswitcharmbottom.get();
+    }
 }

@@ -24,20 +24,24 @@ public class CmdArmUp extends Command {
 
     protected void execute() {
     	Robot.sysIntake.armthingup();
+		System.out.println("Arm thingy moving up");
     }
 
     protected boolean isFinished() {
         return !Robot.sysIntake.isTopthingset();
+        
     }
 
     // Called once after isFinished returns true
     protected void end() {
     	Robot.sysIntake.armthingnothing();
+		System.out.println("Arm thingy is up");
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
     	Robot.sysIntake.armthingnothing();
+		System.out.println("Arm thingy interupted");
     }
 }

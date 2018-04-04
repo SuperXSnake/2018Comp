@@ -120,16 +120,16 @@ private JoystickDriver _joystickDriver = new JoystickDriver(0, JoystickDriver.Jo
 		_btnOpManualIntakeCube.whileHeld(new CmdManualIntakeCube());
 		
 		JoystickButton _btnCloseIntake = new JoystickButton(_joystickOperator, 5);
-		_btnCloseIntake.whenPressed(new CmdIntakeClose());
+		_btnCloseIntake.whenPressed(new CmdArmUp());
 		
 		JoystickButton _btnOpenIntake = new JoystickButton(_joystickOperator, 6);
-		_btnOpenIntake.whenPressed(new CmdIntakeOpen());
+		_btnOpenIntake.whenPressed(new CmdArmDown());
 
 		JoystickButton _btnOpManualDropCube = _joystickOperator.getManualDropCubeButton();
 		_btnOpManualDropCube.whileHeld(new CmdManualDropCube());
 		
-		JoystickButton _btnOpCorrectCubePlacement = _joystickOperator.getCorrectCubePlacement();
-		_btnOpCorrectCubePlacement.whileHeld(new CmdCorrectCubePlacement());
+		//JoystickButton _btnOpCorrectCubePlacement = _joystickOperator.getCorrectCubePlacement();
+		//_btnOpCorrectCubePlacement.whileHeld(new CmdCorrectCubePlacement());
 	}
 
 	public JoystickDriver getJoystickDriver()
